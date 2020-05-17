@@ -58,7 +58,7 @@ class BaseController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     protected function responseRedirect($route, $message, $type = 'info', $error = false, $withOldInputWhenError = false)
-    {
+    { 
     $this->setFlashMessage($message, $type);
     $this->showFlashMessages();
 

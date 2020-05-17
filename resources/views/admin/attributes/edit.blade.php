@@ -102,6 +102,10 @@
         </div>
     </div>
 @endsection
-@push('scripts')
+<!-- @push('scripts')
     <script src="{{ asset('backend/js/app.js') }}"></script>
-@endpush
+@endpush -->
+<!-- <script src="{{ asset('backend/js/app.js') }}"></script> -->
+<!-- @stack('scripts')
+<script src="{{ asset('backend/js/app.js') }}"></script>
+@endstack -->

@@ -35,7 +35,7 @@ trait FlashMessages
      * @param $type
      */
     protected function setFlashMessage($message, $type)
-    {
+    {   //dd($message);
         $model = 'infoMessages';
 
         switch ($type) {
@@ -56,7 +56,7 @@ trait FlashMessages
             }
                 break;
         }
-
+        //$message='';
         if (is_array($message)) {
             foreach ($message as $key => $value)
             {
