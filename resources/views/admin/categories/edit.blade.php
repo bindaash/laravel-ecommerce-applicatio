@@ -16,11 +16,9 @@
                     <div class="tile-body">
                         <div class="form-group">
                             <label class="control-label" for="name">Name <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name', $targetCategory->name) }}"/>
+                            <input class="form-control @if($errors->has('name')) is-invalid @endif" type="text" name="name" id="name" value="{{ old('name', $targetCategory->name) }}"/>
                             <input type="hidden" name="id" value="{{ $targetCategory->id }}">
-                            @if (!empty($message))
-                            @error('name') {{ $message }} @enderror
-                            @endif
+                            @foreach ($errors->get('name') as $message)<span>{{ $message }}</span> @endforeach
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="description">Description</label>
@@ -28,19 +26,17 @@
                         </div>
                         <div class="form-group">
                             <label for="parent">Parent Category <span class="m-l-5 text-danger"> *</span></label>
-                            <select id=parent class="form-control custom-select mt-15" name="parent_id">
+                            <select id=parent class="form-control custom-select mt-15 @if($errors->has('parent_id')) is-invalid @endif" name="parent_id">
                                 <option value="0">Select a parent category</option>
-                                @foreach($categories as $category)
-                                    @if ($targetCategory->parent_id == $category->id)
-                                        <option value="{{ $category->id }}" selected> {{ $category->name }} </option>
+                                @foreach($categories as $key => $category)
+                                    @if ($targetCategory->parent_id == $key)
+                                        <option value="{{ $key }}" selected> {{ $category }} </option>
                                     @else
-                                        <option value="{{ $category->id }}"> {{ $category->name }} </option>
+                                        <option value="{{ $key }}"> {{ $category }} </option>
                                     @endif
                                 @endforeach
                             </select>
-                            @if (!empty($message))
-                            @error('parent_id') {{ $message }} @enderror
-                            @endif
+                            @foreach ($errors->get('parent_id') as $message)<span>{{ $message }}</span> @endforeach
                         </div>
                         <div class="form-group">
                             <div class="form-check">
@@ -71,7 +67,7 @@
                                 </div>
                                 <div class="col-md-10">
                                     <label class="control-label">Category Image</label>
-                                    <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image"/>
+                                    <input class="form-control @if($errors->has('image')) is-invalid @endif" type="file" id="image" name="image"/>
                                     @if (!empty($message))
                                     @error('image') {{ $message }} @enderror
                                     @endif

@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
+use App\Models\Setting;
 use UploadAble;
-//use Setting;
+//use Config;
 class SettingController extends BaseController
 {
     /**
@@ -22,7 +23,7 @@ class SettingController extends BaseController
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request)
-    {
+    { 
     if ($request->has('site_logo') && ($request->file('site_logo') instanceof UploadedFile)) {
 
         if (config('settings.site_logo') != null) {
@@ -39,10 +40,10 @@ class SettingController extends BaseController
         $favicon = $this->uploadOne($request->file('site_favicon'), 'img');
         Setting::set('site_favicon', $favicon);
 
-    } else {
+    } else { 
 
         $keys = $request->except('_token');
-
+        //dd($keys);
         foreach ($keys as $key => $value)
         {
             Setting::set($key, $value);

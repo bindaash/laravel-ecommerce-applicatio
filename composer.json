@@ -6,9 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "darryldecode/cart": "~4.0",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "typicms/nestablecollection": "^1.1",
+        "paypal/rest-api-sdk-php": "*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

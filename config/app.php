@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Ecommerce'),
 
     /*
     |--------------------------------------------------------------------------
@@ -178,6 +178,7 @@ return [
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\SettingServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
         
 
     ],
@@ -228,6 +229,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class, 
+        'Str' => Illuminate\Support\Str::class, 
+        //'Setting' => Illuminate\Support\Facades\Setting::class, 
 
     ],
 

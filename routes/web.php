@@ -10,10 +10,55 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 require 'admin.php';
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes(); 
+Route::view('/', 'site.pages.homepage');
+Route::group(['middleware' => ['web']], function () {
+    
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('login');
+    Route::get('/register', function () {
+        return view('auth.register');
+    })->name('register');
+
+});
+Route::get('/category/{slug}', 'Site\CategoryController@show')->name('category.show');
+Route::get('/product/{slug}', 'Site\ProductController@show')->name('product.show');
+Route::post('/product/add/cart', 'Site\ProductController@addToCart')->name('product.add.cart');
+
+Route::get('/cart', 'Site\CartController@getCart')->name('checkout.cart');
+Route::get('/cart/item/{id}/remove', 'Site\CartController@removeItem')->name('checkout.cart.remove');
+Route::get('/cart/clear', 'Site\CartController@clearCart')->name('checkout.cart.clear');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/checkout', 'Site\CheckoutController@getCheckout')->name('checkout.index');
+    Route::post('/checkout/order', 'Site\CheckoutController@placeOrder')->name('checkout.place.order');
 });
 
+Route::get('checkout/payment/complete', 'Site\CheckoutController@complete')->name('checkout.payment.complete');
+Route::get('account/orders', 'Site\AccountController@getOrders')->name('account.orders');
+
+
+
+
+
+
+//Route::view('/login', 'login');
+/* Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/', function () {
+        return view('site.pages.homepage');
+    })->name('site.homepage');
+
+}); */
+/* Route::get('/login', function() {
+    return view('auth.login');
+}); */
+//Route::view('/login', 'admin.auth.login');
+/* Route::get('/', function () {
+    return view('welcome');
+}); */
 //Route::view('/admin', 'admin.dashboard.index');
 //Route::view('/admin/login', 'admin.auth.login');

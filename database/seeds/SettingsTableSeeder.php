@@ -24,11 +24,11 @@ class SettingsTableSeeder extends Seeder
         ],
         [
             'key'                       =>  'currency_code',
-            'value'                     =>  'GBP',
+            'value'                     =>  'INR',
         ],
         [
             'key'                       =>  'currency_symbol',
-            'value'                     =>  '£',
+            'value'                     =>  '&#8377;',
         ],
         [
             'key'                       =>  'site_logo',
