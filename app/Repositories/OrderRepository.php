@@ -68,4 +68,10 @@ class OrderRepository extends BaseRepository implements OrderContract
     {
         return Order::where('order_number', $orderNumber)->first();
     }
+
+    public function deleteOrderById($id){
+
+       return  Order::where('id', $id)->delete();
+    }
+
 }

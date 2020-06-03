@@ -7,6 +7,7 @@
             <p>{{ $subTitle }}</p>
         </div>
     </div>
+    @include('admin.partials.flash')
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
@@ -42,7 +43,8 @@
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Second group">
-                                        <a href="{{ route('admin.orders.show', $order->order_number) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ route('admin.orders.show', $order->order_number) }}" class="btn btn-sm btn-info"><i class="fa fa-info"></i></a>
+                                        <a href="{{ route('admin.order.del', $order->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>

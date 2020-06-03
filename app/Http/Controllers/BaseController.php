@@ -29,6 +29,7 @@ class BaseController extends Controller
     protected function showErrorPage($errorCode = 404, $message = null)
     {
     $data['message'] = $message;
+    //dd($data);
     return response()->view('errors.'.$errorCode, $data, $errorCode);
     }
 
