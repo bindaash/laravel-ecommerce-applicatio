@@ -5,13 +5,12 @@ $info = Session::get('info');
 $warnings = Session::get('warning');
 @endphp
 
-@if ($errors) 
-@foreach($errors as $key => $value)
+@if (!empty($errors)) 
 <div class="alert alert-danger alert-dismissible" role="alert">
     <button class="close" type="button" data-dismiss="alert">×</button>
-    <strong>Error!</strong> {{ $value }}
+    <strong>Error!</strong> {{ $errors }}
 </div>
-@endforeach @endif
+@endif
 
 @if (!empty($messages) ) 
 <div class="alert alert-success alert-dismissible" role="alert">
@@ -20,16 +19,16 @@ $warnings = Session::get('warning');
 </div>
 @endif
 
-@if ($info) @foreach($info as $key => $value)
+@if (!empty($info)) 
 <div class="alert alert-info alert-dismissible" role="alert">
     <button class="close" type="button" data-dismiss="alert">×</button>
-    <strong>Info!</strong> {{ $value }}
+    <strong>Info!</strong> {{ $info }}
 </div>
-@endforeach @endif
+@endif
 
-@if ($warnings) @foreach($warnings as $key => $value)
+@if (!empty($warnings)) 
 <div class="alert alert-warning alert-dismissible" role="alert">
     <button class="close" type="button" data-dismiss="alert">×</button>
-    <strong>Warning!</strong> {{ $value }}
+    <strong>Warning!</strong> {{ $warnings }}
 </div>
-@endforeach @endif
+@endif
