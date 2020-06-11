@@ -48,8 +48,23 @@
                                 <button type="submit" class="btn btn-success btn-block"> Login </button>
                             </div>
                         </form>
+                        <h2 style="text-align:center">or</h2>
+                        <p style="text-align:center"><strong>Login with Social Media</strong></p>
                     </article>
-                    <div class="border-top card-body text-center">Don't have an account? <a href="{{ url('register') }}">Sign Up</a></div>
+                    <div class="border-top card-body text-center">
+                        <a href="redirect/facebook" class="fb btn">
+                        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                        </a>
+                        <a href="#" class="twitter btn">
+                        <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                        </a>
+                        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+                        </i> Login with Google+
+                        </a>
+                    </div>
+                    <div class="border-top card-body text-center">Don't have an account? 
+                        <a href="{{ url('register') }}">Sign Up</a>
+                    </div>
                 </div>
             </div>
         </div>

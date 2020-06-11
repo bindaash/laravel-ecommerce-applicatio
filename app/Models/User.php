@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -28,6 +29,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    /**
      * @return string
      */
     public function getFullNameAttribute()
@@ -39,7 +49,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+    
+    public function identities(){
 
+        return $this->hasMany(SocialIdentity::class);
+        
+    }
     
     
 }

@@ -40,7 +40,11 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('checkout/payment/complete', 'Site\CheckoutController@complete')->name('checkout.payment.complete');
 Route::get('account/orders', 'Site\AccountController@getOrders')->name('account.orders');
 
+Route::get ( '/redirect/{service}', 'Auth\LoginController@redirectToProvider' );
+Route::get ( '/callback/{service}', 'Auth\LoginController@handleProviderCallback' );
 
+//Route::get('login/facebook', 'Auth\LoginController@redirectToProvider')->name('facebook');
+//Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 
 

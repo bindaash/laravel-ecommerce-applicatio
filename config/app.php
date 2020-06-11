@@ -179,6 +179,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\SettingServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
         
 
     ],
@@ -231,7 +233,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class, 
         'Str' => Illuminate\Support\Str::class, 
-        //'Setting' => Illuminate\Support\Facades\Setting::class, 
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class, 
+        'Setting' => Illuminate\Support\Facades\Setting::class, 
+
 
     ],
 
